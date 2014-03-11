@@ -7,11 +7,14 @@
 
 #include "comunicador.h"
 
-comunicador::comunicador() {
+comunicador::comunicador(int baudios) {
 	// TODO Auto-generated constructor stub
 	orden='U';
 	velocidad=0;
 	distancia=0;
+//	mySerial.begin(baudios);
+//	Serial=S1;
+	//SoftwareSerial Serial(1,2);
 }
 
 comunicador::~comunicador() {

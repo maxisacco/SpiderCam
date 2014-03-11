@@ -33,6 +33,7 @@ void optoWheel::pinAssign(int encA, int encB){
 	PinA=encA;
 	PinB=encB;
 };
+float optoWheel::get_mmPorVuelta(void){return milimetrosPorVuelta;}
 int optoWheel::get_posAbsPasos(void){return posAbsPasos;};
 int optoWheel::get_direccionAct(void){return lastDireccion;};
 //int optoWheel::get_PosRelativa(void){

@@ -23,6 +23,7 @@ public:
   int get_posAbsPasos(void);
   int get_direccionAct(void);
   int get_dientesPorVuelta(void);
+//  float get_mmPorVuelta(void)
   float get_velocidadInst(void);
  // float get_velocidadPP(void);
   float get_mmPorVuelta(void);

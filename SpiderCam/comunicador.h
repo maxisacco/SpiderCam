@@ -7,12 +7,15 @@
 
 #ifndef COMUNICADOR_H_
 #define COMUNICADOR_H_
+#include <HardwareSerial.h>
+
 
 class comunicador {
 	char orden;
 	float velocidad, distancia;
+
 public:
-	comunicador();
+	comunicador(int baudios);
 	~comunicador();
 	bool recibirOrden(void);
 	void enviarData(char & buffer) const;
