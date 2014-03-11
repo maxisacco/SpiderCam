@@ -9,8 +9,7 @@ SpiderCam.cpp.d SpiderCam.cpp.o: ../SpiderCam.cpp ../SpiderCam.h \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Printable.h \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/new.h \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/avr/variants/standard/pins_arduino.h \
-  ../stepperMotor.h \
-  /Users/msacco/Desktop/Workspace/SpiderCam/Libraries/TimerOne/TimerOne.h
+  ../stepperMotor.h /Users/msacco/Desktop/Arduino/TimerOne/TimerOne.h
 
 ../SpiderCam.h:
 
@@ -36,4 +35,4 @@ SpiderCam.cpp.d SpiderCam.cpp.o: ../SpiderCam.cpp ../SpiderCam.h \
 
 ../stepperMotor.h:
 
-/Users/msacco/Desktop/Workspace/SpiderCam/Libraries/TimerOne/TimerOne.h:
+/Users/msacco/Desktop/Arduino/TimerOne/TimerOne.h:

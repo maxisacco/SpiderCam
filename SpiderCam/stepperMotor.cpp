@@ -10,7 +10,12 @@
 stepperMotor::~stepperMotor() {
 	// TODO Auto-generated destructor stub
 }
-
+/*stepperMotor::stepperMotor(){
+	  tiempoTimer=0;
+	  pasosPorVuelta=0;
+	  CorModo=1;
+	  reset();
+}*/
 stepperMotor::stepperMotor(int ppv,int TTimer){
   tiempoTimer=TTimer;
   pasosPorVuelta=ppv;

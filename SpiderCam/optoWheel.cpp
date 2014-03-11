@@ -8,6 +8,12 @@
 #include "optoWheel.h"
 #define ULMAX 4294967295
 
+/*optoWheel::optoWheel(){
+	dientesPorVuelta=0;
+	milimetrosPorVuelta=0;
+	reset();
+};*/
+
 optoWheel::optoWheel(int dpv, float mmXv){
 	dientesPorVuelta=dpv;
 	milimetrosPorVuelta=mmXv;

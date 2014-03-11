@@ -14,6 +14,8 @@
 
 class optoWheel {
 public:
+
+  //optoWheel();
   optoWheel(int dpv, float mmXv);
   virtual ~optoWheel();
   void reset(void);

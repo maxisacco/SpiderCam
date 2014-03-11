@@ -14,6 +14,7 @@
 
 class stepperMotor {
 public:
+  //stepperMotor();
   stepperMotor(int ppv, int TTimer);
   virtual ~stepperMotor();
   void reset(void);
