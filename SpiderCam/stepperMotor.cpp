@@ -70,6 +70,7 @@ void stepperMotor::reset(void){
 	 	 else digitalWrite(PinDir,LOW);
 	 	 frecCounterMAX=(60000000/abs(velocidad))/(pasosPorVuelta*tiempoTimer*CorModo);} // esto hay que verlo..XXX
  float stepperMotor::get_velocidad(void){return velocidad;}
+
  void stepperMotor::conectar(void){
 	 digitalWrite(PinOE,HIGH);
  }

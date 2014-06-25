@@ -20,6 +20,7 @@ optoWheel::optoWheel(int dpv, float mmXv){
 	reset();
 };
 optoWheel::~optoWheel(){};
+
 void optoWheel::reset(void){
 //	marcaPosRelativa=0;
 	tiempoAnt=0;
@@ -34,7 +35,7 @@ void optoWheel::pinAssign(int encA, int encB){
 	PinB=encB;
 };
 float optoWheel::get_mmPorVuelta(void){return milimetrosPorVuelta;}
-int optoWheel::get_posAbsPasos(void){return posAbsPasos;};
+long optoWheel::get_posAbsPasos(void){return posAbsPasos;};
 int optoWheel::get_direccionAct(void){return lastDireccion;};
 //int optoWheel::get_PosRelativa(void){
 //	int res=posAbsPasos-marcaPosRelativa; ///esto eventualmente dra negativo por overflow en posAbsPasos

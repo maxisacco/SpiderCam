@@ -27,6 +27,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/Wire/utility}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/libraries}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.2133650200" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
@@ -38,6 +39,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/Wire/utility}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ModuloTractor/Libraries/libraries}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1444345666" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
@@ -63,5 +65,22 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/ModuloTractor"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="hex" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments/>
+				<buildTarget>hex</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

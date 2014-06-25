@@ -10,10 +10,10 @@
 #define PASOSXVUELTA 42   //Stepper
 #define TICSXVUELTA 48    //Opto
 #define MMXVUELTA 12.56   //Opto
-#define TIEMPOUS  100		  //tiempo en us de atencion de iterrupcion
+#define TIEMPOUS  100     //tiempo en us de atencion de iterrupcion
 
 //SoftwareSerial Serial;
-	TimerOne Timer1;
+//	TimerOne Timer2;
 	comunicador enlace;
 	stepperMotor motor(PASOSXVUELTA,1);
 	optoWheel encoder(TICSXVUELTA,MMXVUELTA);
@@ -36,8 +36,6 @@ void setup()
 void loop()
 {
 	enlace.recibirOrden();
-	Serial.print("Orden:");
-	Serial.println(enlace.orden);
 	Serial.print("Velocidad:");
 	Serial.println(enlace.velocidad);
 	Serial.print("Distancia:");

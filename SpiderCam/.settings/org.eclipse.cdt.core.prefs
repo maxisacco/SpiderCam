@@ -253,7 +253,7 @@ environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.BOARD_NAME/value=Arduino Uno
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.COM_PORT/delimiter=\:
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.COM_PORT/operation=replace
-environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.COM_PORT/value=/dev/tty.Bluetooth-Incoming-Port
+environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.COM_PORT/value=/dev/tty.usbmodem1411
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.EXTRA.C.COMPILE/delimiter=\:
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.EXTRA.C.COMPILE/operation=replace
 environment/project/it.baeyens.arduino.core.toolChain.release.2137832584/JANTJE.EXTRA.C.COMPILE/value=

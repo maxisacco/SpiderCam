@@ -17,12 +17,12 @@ public:
 	void run(void);
 	void parar(void);
 	void reset(void);
-	float getMmXtic() const;
+//	float getMmXtic() const;
 	float getDistancia(void);
-	void setDistancia(float dist,float velocidad);
-	void moverMM(float mili,float velocidad);
-	void mover(float velocidad);
-
+	void setDistancia(float dist);
+//	void moverMM(float mili,float velocidad);
+	void setVelocidad(float velocidad);
+	float getVelocidad(void);
 
 private:
 	stepperMotor *motor;

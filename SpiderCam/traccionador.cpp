@@ -21,9 +21,9 @@ traccionador::~traccionador() {
 }
 
 
-float traccionador::getMmXtic() const {
+/*float traccionador::getMmXtic() const {
 	return mmXtic;
-}
+}*/
 
 void traccionador::parar(void){
 	motor->set_velocidad(0);
@@ -31,9 +31,10 @@ void traccionador::parar(void){
 float traccionador::getDistancia(void){
 	return mmXtic*encoder->get_posAbsPasos();
 }
-void traccionador::setDistancia(float dist,float velocidad){
+/*void traccionador::setDistancia(float dist,float velocidad){
 	moverMM(dist-distancia,velocidad);
-}
+}*/
+/*
 void traccionador::moverMM(float mili,float velocidad){
 
 	int tics = mili / mmXtic;
@@ -42,15 +43,16 @@ void traccionador::moverMM(float mili,float velocidad){
 // Calcular la nueva poscicion del enconder.
 
 }
-void traccionador::mover(float velocidad){
+*/
+void traccionador::setVelocidad(float velocidad){
 	motor->set_velocidad(velocidad);
 }
-
+float traccionador::getVelocidad(void){return motor->get_velocidad();};
 void traccionador::run(void){
 	motor->run();
 	encoder->run();
-	if ((wishPos!=0 ) and (wishPos==encoder->get_posAbsPasos())){
-		motor->set_velocidad(0);
-		wishPos=0;
-	}
+//	if ((wishPos!=0 ) and (wishPos==encoder->get_posAbsPasos())){
+//		motor->set_velocidad(0);
+//		wishPos=0;
+//	}
 }

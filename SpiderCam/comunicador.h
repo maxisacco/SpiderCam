@@ -11,16 +11,17 @@
 
 
 class comunicador {
-	char orden;
-	float velocidad, distancia;
+
 
 public:
-	comunicador(int baudios);
+	char orden;
+	float velocidad, distancia;
+	comunicador();
 	~comunicador();
 	bool recibirOrden(void);
 	void enviarData(char & buffer) const;
 	bool conectar(int baudios);
-	void parser(void);
+	float parser(void);
 	void loop(void);
 };
 
