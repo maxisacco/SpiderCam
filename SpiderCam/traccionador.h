@@ -12,7 +12,7 @@
 
 class traccionador {
 public:
-	traccionador(stepperMotor &M, optoWheel &O, int TTimer);
+	traccionador(stepperMotor &M, optoWheel &O, int TTimer, bool invDir);
 	~traccionador();
 	void run(void);
 	void parar(void);
@@ -30,7 +30,7 @@ private:
 	float distancia;
 	float mmXtic;
 	int tiempoTimer;
-	long wishPos;
+	bool inversorDir;
 
 };
 

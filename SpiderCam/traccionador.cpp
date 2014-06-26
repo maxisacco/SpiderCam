@@ -7,13 +7,13 @@
 
 #include "traccionador.h"
 
-traccionador::traccionador(stepperMotor  &M, optoWheel  &O, int TTimer) {
+traccionador::traccionador(stepperMotor  &M, optoWheel  &O, int TTimer, bool invDir) {
 	motor = &M;
 	encoder = &O;
 	tiempoTimer=TTimer;
 	distancia=0;
 	mmXtic=encoder->get_mmPorVuelta() /encoder->get_dientesPorVuelta();
-	wishPos=0;
+	inversorDir=invDir;
 }
 
 traccionador::~traccionador() {
@@ -21,38 +21,33 @@ traccionador::~traccionador() {
 }
 
 
-/*float traccionador::getMmXtic() const {
-	return mmXtic;
-}*/
-
 void traccionador::parar(void){
 	motor->set_velocidad(0);
 }
 float traccionador::getDistancia(void){
 	return mmXtic*encoder->get_posAbsPasos();
 }
-/*void traccionador::setDistancia(float dist,float velocidad){
-	moverMM(dist-distancia,velocidad);
-}*/
-/*
-void traccionador::moverMM(float mili,float velocidad){
 
-	int tics = mili / mmXtic;
-	if (tics<0) motor->set_velocidad(velocidad*-1);
-	else motor->set_velocidad(velocidad);
-// Calcular la nueva poscicion del enconder.
-
-}
-*/
 void traccionador::setVelocidad(float velocidad){
-	motor->set_velocidad(velocidad);
+	if (velocidad == 0.0) {
+		motor->set_velocidad(0);
+	} else if (velocidad > 0.0) {
+			motor->set_velocidad(velocidad);
+			motor->set_direccion(!inversorDir);
+	} else {
+		motor->set_velocidad(abs(velocidad));
+		motor->set_direccion(inversorDir);
+	}
 }
-float traccionador::getVelocidad(void){return motor->get_velocidad();};
+float traccionador::getVelocidad(void){
+	float velo= motor->get_velocidad();
+	if (motor->get_direccion() xor inversorDir)
+		return velo;
+	else
+		return -velo;
+}
+
 void traccionador::run(void){
 	motor->run();
 	encoder->run();
-//	if ((wishPos!=0 ) and (wishPos==encoder->get_posAbsPasos())){
-//		motor->set_velocidad(0);
-//		wishPos=0;
-//	}
 }

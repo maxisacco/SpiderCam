@@ -10,16 +10,14 @@
 stepperMotor::~stepperMotor() {
 	// TODO Auto-generated destructor stub
 }
-/*stepperMotor::stepperMotor(){
-	  tiempoTimer=0;
-	  pasosPorVuelta=0;
-	  CorModo=1;
-	  reset();
-}*/
-stepperMotor::stepperMotor(int ppv,int TTimer){
+stepperMotor::stepperMotor(int maxvel,int ppv,int TTimer){
   tiempoTimer=TTimer;
+  entrepaso=tiempoTimer/2;
   pasosPorVuelta=ppv;
   CorModo=1;
+  velocidadMaxima=maxvel;
+  coefVelocidad=(60000000/(velocidadMaxima*pasosPorVuelta*tiempoTimer*CorModo));
+  direccion=LOW;
   reset();
 }
 void stepperMotor::run(void){
@@ -41,8 +39,9 @@ void stepperMotor::run(void){
 }
 void stepperMotor::hacerPaso(void){
     digitalWrite(PinSI,HIGH);
-    delayMicroseconds(50);
+    delayMicroseconds(entrepaso);
     digitalWrite(PinSI,LOW);
+    delayMicroseconds(entrepaso);
 }
 int stepperMotor::getPasosXVuelta(void){
 	return pasosPorVuelta;
@@ -64,12 +63,27 @@ void stepperMotor::reset(void){
    pinMode(PinHS,OUTPUT);
    pinMode(PinOP,OUTPUT);
   }
+
+
  void stepperMotor::set_velocidad(float valor){
 	 	 velocidad=valor;
-	 	 if (valor > 0.0) digitalWrite(PinDir,HIGH);
-	 	 else digitalWrite(PinDir,LOW);
-	 	 frecCounterMAX=(60000000/abs(velocidad))/(pasosPorVuelta*tiempoTimer*CorModo);} // esto hay que verlo..XXX
- float stepperMotor::get_velocidad(void){return velocidad;}
+	 	 frecCounterMAX=coefVelocidad/velocidad;
+ }
+
+
+void stepperMotor::set_direccion(bool dir){
+	 direccion=dir;
+	 if (direccion) digitalWrite(PinDir,HIGH);
+	 else digitalWrite(PinDir,LOW);
+}
+
+bool stepperMotor::get_direccion(void){
+	return direccion;
+}
+
+float stepperMotor::get_velocidad(void){
+	 return velocidad;
+}
 
  void stepperMotor::conectar(void){
 	 digitalWrite(PinOE,HIGH);
@@ -92,5 +106,4 @@ void stepperMotor::reset(void){
 	 	 digitalWrite(PinOP,HIGH);
 	 	 CorModo=1;
 	 }
-	// set_velocidad(get_velocidad());
  }

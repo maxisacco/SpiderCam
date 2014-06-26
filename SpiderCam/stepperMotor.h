@@ -15,7 +15,7 @@
 class stepperMotor {
 public:
   //stepperMotor();
-  stepperMotor(int ppv, int TTimer);
+  stepperMotor(int maxvel, int ppv, int TTimer);
   virtual ~stepperMotor();
   void reset(void);
   void pinAssign(int Dir, int SI, int OE, int HS, int OP);
@@ -26,12 +26,18 @@ public:
   int getPasosXVuelta(void);
   void conectar(void);
   void desconectar(void);
+  void set_direccion(bool dir);
+  bool get_direccion(void);
 
 private:
   int PinDir,PinSI,PinOE,PinHS,PinOP;
+  int entrepaso;
   int tiempoTimer; //tiempo en microsegundos de atencion interrupcion del timer
   int pasosPorVuelta;
+  int velocidadMaxima;
   float velocidad; // en RPMs
+  float coefVelocidad;
+  bool direccion;
   int frecCounter; // divisor del Timer para activar el paso.
   int frecCounterMAX; // divisor del Timer para activar el paso.
   int CorModo; // variavle de correccion de pasos por vuelta para fullsetp y halfstep

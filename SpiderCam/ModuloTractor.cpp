@@ -8,21 +8,18 @@
 
 
 #define PASOSXVUELTA 42   //Stepper
+#define MAXVELRPM 300     //Stepper
 #define TICSXVUELTA 48    //Opto
-#define MMXVUELTA 12.56   //Opto
+#define MMXVUELTA 6.28   //Opto
 #define TIEMPOUS  100     //tiempo en us de atencion de iterrupcion
+#define INVERSORDIR false  //invierte la direccion del valor de velocidad +-
+comunicador enlace;
+stepperMotor motor(MAXVELRPM,PASOSXVUELTA,TIEMPOUS);
+optoWheel encoder(TICSXVUELTA,MMXVUELTA);
+traccionador actuador(motor,encoder,TIEMPOUS,false);
 
-//SoftwareSerial Serial;
-//	TimerOne Timer2;
-	comunicador enlace;
-	stepperMotor motor(PASOSXVUELTA,1);
-	optoWheel encoder(TICSXVUELTA,MMXVUELTA);
-	traccionador actuador(motor,encoder,TIEMPOUS);
-
-//The setup function is called once at startup of the sketch
 void setup()
 {
-
 	Timer1.initialize(10);
 	Timer1.attachInterrupt(run,TIEMPOUS);
 	enlace.conectar(9600);
@@ -36,15 +33,15 @@ void setup()
 void loop()
 {
 	enlace.recibirOrden();
+	actuador.setVelocidad(enlace.velocidad);
 	Serial.print("Velocidad:");
-	Serial.println(enlace.velocidad);
+	Serial.println(actuador.getVelocidad());
 	Serial.print("Distancia:");
-	Serial.println(enlace.distancia);
+	Serial.println(actuador.getDistancia());
 //	Serial.println(motor.get_cantidadPasos());
 	delay(500);
 }
 
 void run(){
-	// motor.run();
-
+	actuador.run();
 }
